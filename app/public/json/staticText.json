@@ -1,0 +1,17 @@
+{
+  "cardBtnText": "Know More",
+  "cardImageAlt": "Movie Thumbnail",
+  "footerText": "This is footer",
+  "headerText": "MovieBase",
+  "logoImageAlt": "Logo",
+  "formLabels": {
+    "releaseYear": "Release Year",
+    "description": "Description",
+    "cast": "Cast",
+    "direction": "Direction",
+    "genre": "Genre",
+    "saveBtnText": "Save",
+    "cancelBtnText": "Cancel"
+  },
+  "searchPlaceHolder": "Search here"
+}
