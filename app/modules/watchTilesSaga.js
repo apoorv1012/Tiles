@@ -1,9 +1,9 @@
 import 'babel-polyfill';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import _ from 'lodash';
-import { createSelector } from 'reselect';
 import FetchApi from '../api/fetchApi';
 import * as actionTypes from '../modules/tilesActionTypes';
+import { searchSelector } from '../selectors/searchSelector';
 
 export function* loadTiles() {
     try {
@@ -25,19 +25,13 @@ export function* loadDetailedTile(action) {
 
 export function* searchTiles(action) {
     try {
-        const searchTerm = action.searchTerm;
-        const tilesData = yield call(FetchApi.getData, `/tiles/search/get/${searchTerm}`);
-        const filteredTiles = _.filter(tilesData, function(item) {
-            if (item.text.toLowerCase().indexOf(searchTerm) > -1 ||
-                item.releaseYear.toLowerCase().indexOf(searchTerm) > -1 ||
-                item.description.toLowerCase().indexOf(searchTerm) > -1 ||
-                item.cast.toLowerCase().indexOf(searchTerm) > -1 ||
-                item.direction.toLowerCase().indexOf(searchTerm) > -1 ||
-                item.genre.toLowerCase().indexOf(searchTerm) > -1) {
-                return item;
-            }
-        });
-        yield put({type: actionTypes.LOADED_TILES, tilesData: filteredTiles});
+        const tilesData = yield call(FetchApi.getData, `/tiles/search/get/${action.searchTerm}`);
+        const searchDetails = {
+            'tilesData': tilesData,
+            'searchTerm': action.searchTerm
+        };
+        const newTilesData = searchSelector(searchDetails);
+        yield put({type: actionTypes.LOADED_TILES, tilesData: newTilesData});
     } catch(err) {
         console.log("Error is: " + err);
     }

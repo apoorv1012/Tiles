@@ -8,11 +8,11 @@
   "scripts": {
     "dev": "npm run startDev",
     "prod": "npm run buildProd && npm run startProd",
-    "startDev": "set NODE_ENV=development&& node app/app.js",
-    "startProd": "set NODE_ENV=production&& node app/app.js",
+    "startDev": "cross-env NODE_ENV=development node app/app.js",
+    "startProd": "cross-env NODE_ENV=production node app/app.js",
     "buildDev": "webpack --config ./webpack.dev.config.js",
     "buildProd": "webpack --config ./webpack.prod.config.js",
-    "test": "set NODE_ENV=test&& jest",
+    "test": "cross-env NODE_ENV=test jest",
     "testWatch": "npm run test -- --watch"
   },
   "devDependencies": {
@@ -55,6 +55,7 @@
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
     "bootstrap": "^3.3.7",
+    "cross-env": "^5.0.5",
     "express": "^4.15.4",
     "lodash": "^4.17.4",
     "open-browser-webpack-plugin": "0.0.5",

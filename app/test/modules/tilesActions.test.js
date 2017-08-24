@@ -9,13 +9,6 @@ describe('actions', () => {
         expect(actions.loadTiles()).toEqual(expectedAction);
     });
 
-    it('should create an action to load static content', () => {
-        const expectedAction = {
-            type: actionTypes.LOAD_STATIC_CONTENT,
-        };
-        expect(actions.loadStaticContent()).toEqual(expectedAction);
-    });
-
     it('should create an action to load detailed tile', () => {
         const id='t2';
         const expectedAction = {
