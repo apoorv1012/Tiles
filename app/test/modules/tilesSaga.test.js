@@ -34,7 +34,7 @@ describe('asyncActions:-search tiles method', () => {
         'searchTerm': 'ince'
     };
     const it = sagaHelper(sagaMethods.searchTiles(action));
-    const expectedAction = () => ({ type: actionTypes.LOADED_TILES, tilesData: [] });
+    const expectedAction = () => ({ type: actionTypes.LOADED_TILES, tilesData: {} });
     it('should have called the api first', (result) => {
         expect(result).toEqual(call(FetchApi.getData, '/tiles/search/get/ince'));
     });
