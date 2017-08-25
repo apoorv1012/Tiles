@@ -15,7 +15,7 @@ const Container = () => (
             <div id="main-content">
                 <Route exact path="/" component={CardCollectionContainer}/>
                 <Route exact path="/tiles/:id" component={CardDetailedContainer}/>
-                <Route eaxct path="/tiles/search/:term" component={SearchItemsContainer}/>
+                <Route exact path="/tiles/search/:term" component={SearchItemsContainer}/>
             </div>
             <Footer/>
         </div>
