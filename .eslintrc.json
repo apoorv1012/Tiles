@@ -231,7 +231,7 @@
         ],
         "keyword-spacing": "error",
         "line-comment-position": "off",
-        "linebreak-style": ["error", "windows"],
+        "linebreak-style": "off",
         "lines-around-comment": [
             "error",
             {
