@@ -5,7 +5,6 @@ import Header from './header.jsx';
 import CardCollectionContainer from './card/cardCollectionContainer.jsx';
 import CardDetailedContainer from './card/cardDetailedContainer.jsx';
 import SearchItemsContainer from './search/searchItemsContainer.jsx';
-import ErrorComponent from './errorComponent.jsx';
 import Footer from './footer.jsx';
 
 const Container = () => (

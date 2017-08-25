@@ -30,6 +30,21 @@ module.exports = {
                     path.resolve(__dirname, '.')
                 ],
                 loader: ['style-loader', 'css-loader', 'less-loader']
+            },
+            {
+                enforce: "pre", 
+                exclude: ['/node_modules/', 
+                    path.resolve(__dirname, './app/api'),
+                    path.resolve(__dirname, 'app/modules/watchTilesSaga'),
+                    path.resolve(__dirname, './app/assets/styles')
+                ],
+                loader: "eslint-loader",
+                options: {
+                    outputReport: {
+                        filePath: './checkstyle.xml',
+                        formatter: require('eslint/lib/formatters/checkstyle')
+                    }
+                }
             }
         ]
     },

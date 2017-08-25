@@ -1,10 +1,11 @@
 import React from 'react';
 import { bindHandlers } from 'react-bind-handlers';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class Search extends React.PureComponent {
     handleSearch() {
-        this.props.history.push(`/tiles/search/${this.searchBox.value}`);        
+        this.props.history.push(`/tiles/search/${this.searchBox.value}`);
     }
     render() {
         return (
@@ -25,5 +26,9 @@ class Search extends React.PureComponent {
         );
     }
 }
+
+Search.propTypes = {
+    history: PropTypes.object,
+};
 
 export default withRouter(bindHandlers(Search));
